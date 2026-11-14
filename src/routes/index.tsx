@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent } from "react";
-import { ArrowRight, ChevronDown, Sparkles, Check, Menu, X, Radio, Landmark, Building2, Brain, MessageCircle } from "lucide-react";
+import { ArrowRight, ChevronDown, Sparkles, Check, Menu, X, Radio, Brain, MessageCircle, Factory, Zap, Droplets, HeartPulse, HardHat } from "lucide-react";
 import content from "@/lib/neotec-content.json";
 import { NeotecLogo } from "@/components/neotec-brand";
 import { Button } from "@/components/ui/button";
@@ -30,6 +30,11 @@ const NAV = [{ label: "Home", href: "/" }, { label: "Products", href: "/products
 const NAV_DROPDOWNS: Record<string, "home" | "products" | "services" | "industries" | "about"> = { "/": "home", "/products": "products", "/services": "services", "/industries": "industries", "/about": "about" };
 const PRODUCTS = content.products;
 const STATS = [{ v: "4+", l: "Years running mission-critical infrastructure" }, { v: "12+", l: "Enterprise platforms shipped to production" }, { v: "99%", l: "Field uptime, online & offline" }, { v: "2", l: "Continents — India & United States" }];
+const HERO_QUOTES = [
+  "AI platforms and custom engineering for national-scale telecom operations.",
+  "One operating picture for every rollout, field team and asset.",
+  "Built to work with the systems your teams already run.",
+];
 const CLIENTS = ["Telecom", "FinServ", "Engineering", "Public Works", "Energy", "Utilities"];
 const AI = [
   { t: "Real-time command", d: "Live dashboards and KPIs across every operation." },
@@ -40,9 +45,12 @@ const AI = [
   { t: "Security", d: "Role-based access, built for national-infrastructure compliance." },
 ];
 const INDUSTRIES = [
-  { icon: Radio, t: "Telecom", d: "Infrastructure-grade Applied AI for telecom operators and enterprises — from concept to national-scale deployment." },
-  { icon: Landmark, t: "FinServ", d: "Founded by technology entrepreneurs delivering exceptional engineering for telecom providers, financial institutions and engineering firms — from ideation to market leadership." },
-  { icon: Building2, t: "Engineering", d: "We integrate AI and software directly into your existing OSS/BSS, GIS and ERP systems — not a rip-and-replace, a force multiplier." },
+  { icon: Radio, t: "Telecommunications", slug: "telecommunications", d: "The networks Neotecx was built for — sites, rollout, field and care on one live picture." },
+  { icon: Factory, t: "Manufacturing", slug: "manufacturing", d: "Industry 4.0 production — projects, assets and people optimized end to end." },
+  { icon: Zap, t: "Energy & Utilities", slug: "utilities", d: "Grid upgrades to renewables — large energy projects, assets and crews under control." },
+  { icon: Droplets, t: "Oil & Gas", slug: "oil-gas", d: "End-to-end automation from exploration to delivery." },
+  { icon: HeartPulse, t: "Healthcare", slug: "healthcare", d: "Digital health on compliant data — analytics, automation and applied AI." },
+  { icon: HardHat, t: "Construction", slug: "construction", d: "Blueprint to inauguration — projects, materials and crews on schedule." },
 ];
 const DETAILS = PRODUCTS.map(p => ({ k: p.name, h: p.desc, p: p.problem, cta: "View product", f: p.features, slug: p.slug }));
 const SERVICES = [
@@ -108,7 +116,7 @@ function Header() {
 type NavSection = "home" | "products" | "services" | "industries" | "about";
 function NavPanel({ section, mobile = false, onNavigate }: { section: NavSection; mobile?: boolean; onNavigate?: () => void }) {
   const items = section === "services" ? SERVICES.map(item => ({ ...item, href: `/services/${item.slug}` }))
-    : section === "industries" ? INDUSTRIES.map(({ t, d }) => ({ name: t, slug: t.toLowerCase(), desc: d, href: `/#industry-${t.toLowerCase()}` }))
+    : section === "industries" ? INDUSTRIES.map(({ t, slug, d }) => ({ name: t, slug, desc: d, href: `/industries/${slug}` }))
     : section === "products" ? PRODUCTS.map(({ name, slug, desc }) => ({ name, slug, desc, href: `/products/${slug}` }))
     : section === "home" ? [
       { name: "Home overview", slug: "home", desc: "See the Neotecx command layer for mission-critical operations.", href: "/#home" },
@@ -206,11 +214,6 @@ function Index() {
     if (earthRef.current?.complete) setEarthLoaded(true);
     if (omanRef.current?.complete) setOmanLoaded(true);
   }, []);
-  useEffect(() => {
-    const id = setInterval(() => setSlide((s) => (s + 1) % 3), 5000);
-    return () => clearInterval(id);
-  }, []);
-
   return (
     <div className="relative min-h-screen bg-background">
       <BackgroundPointerMotion />
@@ -285,16 +288,16 @@ function Index() {
           <h1 className="mt-6 text-4xl font-bold leading-[1.08] tracking-tight text-foreground md:text-6xl">
             The command layer for<br /><span className="text-gradient">mission-critical networks.</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-base text-foreground md:text-lg">
-            Neotecx builds the AI platforms and custom engineering that telecom operators and enterprises run their national-scale rollouts, field operations and assets on.
+          <p aria-live="polite" aria-atomic="true" className="hero-quote mx-auto mt-6 grid max-w-xl place-items-center text-base text-foreground md:text-lg">
+            “{HERO_QUOTES[slide]}”
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a href="/contact" className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-glow">Book a Demo <ArrowRight className="h-4 w-4" /></a>
             <a href="#platform" className="glass rounded-md px-5 py-2 text-sm font-semibold text-foreground">Explore the Platform</a>
           </div>
-          <div className="mt-8 flex justify-center gap-3">
-            {[0, 1, 2].map((i) => (
-              <button key={i} aria-label={`Slide ${i + 1}`} onClick={() => setSlide(i)} className={`h-3 w-8 rounded-full transition ${slide === i ? "bg-primary" : "bg-muted"}`} />
+          <div role="group" aria-label="Featured Neotecx statements" className="mt-8 flex justify-center gap-3">
+            {HERO_QUOTES.map((quote, i) => (
+              <button key={quote} type="button" aria-label={`Show quote ${i + 1}`} aria-pressed={slide === i} onMouseEnter={() => setSlide(i)} onFocus={() => setSlide(i)} onClick={() => setSlide(i)} className={`h-3 w-8 rounded-full transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${slide === i ? "bg-primary" : "bg-muted"}`} />
             ))}
           </div>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
@@ -351,19 +354,20 @@ function Index() {
       <section id="who-we-serve" className="scroll-mt-24 mx-auto max-w-6xl px-6 py-20">
         <SectionHead eyebrow="Who We Serve" title="Trusted across telecom, financial and engineering infrastructure" sub="Telecom · FinServ · Engineering · Public Works · Energy · Utilities" />
         <div className="grid gap-5 md:grid-cols-3">
-          {INDUSTRIES.map(({ icon: Icon, t, d }) => (
-            <div key={t} id={`industry-${t.toLowerCase()}`} className="glass scroll-mt-24 rounded-2xl p-8">
+          {INDUSTRIES.map(({ icon: Icon, t, slug, d }) => (
+            <a key={slug} href={`/industries/${slug}`} id={`industry-${slug}`} className="glass group scroll-mt-24 rounded-2xl p-8 transition hover:border-primary/60 hover:shadow-glow">
               <Icon className="h-8 w-8 text-primary" />
               <h3 className="mt-5 text-xl font-bold text-foreground">{t}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{d}</p>
-            </div>
+              <span className="mt-5 inline-flex items-center gap-2 text-sm text-primary">Explore sector <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
+            </a>
           ))}
         </div>
       </section>
 
       <section id="what-we-do" className="scroll-mt-24 mx-auto max-w-6xl px-6 py-20">
         <SectionHead eyebrow="What We Do" title="We engineer AI and software into your stack." sub="Where our platforms end, our engineers begin — building, integrating and running custom solutions on top of the systems you already have." />
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">{SERVICES.map(service=><a key={service.slug} id={`service-${service.slug}`} href={`/services/${service.slug}`} className="glass scroll-mt-24 rounded-2xl p-6"><h3 className="font-bold">{service.name}</h3><p className="mt-3 text-sm text-muted-foreground">{service.desc}</p><span className="mt-5 inline-flex items-center gap-2 text-sm text-primary">Explore capability <ArrowRight className="h-4 w-4" /></span></a>)}</div>
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">{SERVICES.map(service=><a key={service.slug} id={`service-${service.slug}`} href={`/services/${service.slug}`} className="glass scroll-mt-24 rounded-2xl p-6"><h3 className="font-bold">{service.name}</h3><p className="mt-3 text-sm text-muted-foreground">{service.desc}</p><span className="mt-5 inline-flex items-center gap-2 text-sm text-primary">Explore service <ArrowRight className="h-4 w-4" /></span></a>)}</div>
       </section>
       <section className="mx-auto max-w-6xl px-6 py-20">
         <SectionHead eyebrow="Architecture" title="Built to slot into the stack you already run." sub="Neotecx connects through a modern, secure REST API to the systems your operation depends on — upstream and downstream, online and offline." />

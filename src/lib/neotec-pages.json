@@ -21,8 +21,38 @@
   },
   "industries": {
     "title": "Who We Serve",
-    "markdown": "Status · Building\n\n# Who We Serve\n\nThis part of the new Neotecx site is under construction. The home experience is live — explore the platform, or book a demo and we'll take it from there.\n\n[Back to home](https://neotecx.com/) [Book a demo](https://neotecx.com/#contact)",
+    "markdown": "Industries\n\n# One platform, many industries.\n\nFrom national telecom to the factory floor, the same Neotecx products and services adapt to mission-critical operations across sectors.\n\n[Get in touch](/contact/)\n\nCAPABILITY MAP\n\n## Which capabilities power each sector.\n\nExplore the products and services behind each sector — from program management and site assets to workforce, ticketing, GIS and applied AI.\n\nTelecommunications · Manufacturing · Energy & Utilities · Oil & Gas · Healthcare · Construction\n\nSECTORS\n\n## Built for mission-critical work.\n\n[ I-01 Telecommunications — The networks Neotecx was built for: sites, rollout, field and care on one live picture. Explore sector ](/industries/telecommunications/) [ I-02 Manufacturing — Industry 4.0 production: projects, assets and people optimized end to end. Explore sector ](/industries/manufacturing/) [ I-03 Energy & Utilities — Grid upgrades to renewables: large energy projects, assets and crews under control. Explore sector ](/industries/utilities/) [ I-04 Oil & Gas — End-to-end automation from exploration to delivery. Explore sector ](/industries/oil-gas/) [ I-05 Healthcare — Digital health on compliant data: analytics, automation and applied AI. Explore sector ](/industries/healthcare/) [ I-06 Construction — Blueprint to inauguration: projects, materials and crews on schedule. Explore sector ](/industries/construction/)\n\n[Book a demo](/contact/)\n\n## Work in one of these?\n\nTell us your sector and we will map the right platform and engineering to it.\n\n[Get in touch](/contact/) [Explore products](/products/)",
     "source": "https://neotecx.com/industries/"
+  },
+  "industries/telecommunications": {
+    "title": "Telecommunications",
+    "markdown": "I-01 / Industry\n\n# Telecommunications\n\nThe networks Neotecx was built for — sites, rollout, field and care on one live picture.\n\n[Get in touch](/contact/) [All industries](/industries/)\n\n001 / The challenge\n\n## What this sector demands.\n\nNational networks live or die on rollout speed, uptime and field coordination.\n\n2.4×\n\nFaster rollout\n\nLive\n\nNOC to field\n\n99%\n\nField uptime\n\n002 / The stack\n\n## What powers Telecommunications.\n\nThe Neotecx products and services this sector runs on — explore each.\n\n[P-06 Product **AI Tower Management** Manage every site and tower lifecycle. Explore](/products/tower-management/) [P-02 Product **AI 360° Site Management** A live GIS twin of the network. Explore](/products/site-management/) [P-01 Product **AI Neo Fiber Rollout** Run rollout with Project 360. Explore](/products/neo-fiber-rollout/) [P-04 Product **AI Ticket Management** Resolve NOC incidents in real time. Explore](/products/ticket-management/) [P-05 Product **AI Workforce Management** Dispatch the right field crew. Explore](/products/workforce-management/)\n\n[Book a demo](/contact/)\n\n## See it for your operation.\n\nBook a demo and we will tailor the platform to your sector and stack.\n\n[Get in touch](/contact/) [Explore products](/products/)",
+    "source": "https://neotecx.com/industries/telecommunications/"
+  },
+  "industries/manufacturing": {
+    "title": "Manufacturing",
+    "markdown": "I-02 / Industry\n\n# Manufacturing\n\nThis part of the Neotecx site is under construction. The home experience is live — explore the platform, or book a demo and we will take it from there.\n\n[Back to industries](/industries/) [Book a demo](/contact/)",
+    "source": "https://neotecx.com/industries/manufacturing/"
+  },
+  "industries/utilities": {
+    "title": "Utilities",
+    "markdown": "I-03 / Industry\n\n# Utilities\n\nThis part of the Neotecx site is under construction. The home experience is live — explore the platform, or book a demo and we will take it from there.\n\n[Back to industries](/industries/) [Book a demo](/contact/)",
+    "source": "https://neotecx.com/industries/utilities/"
+  },
+  "industries/oil-gas": {
+    "title": "Oil & Gas",
+    "markdown": "I-04 / Industry\n\n# Oil & Gas\n\nEnd-to-end automation from exploration to delivery.\n\n[Get in touch](/contact/) [All industries](/industries/)\n\n001 / The challenge\n\n## What this sector demands.\n\nHigh-stakes operations need precision from the field to the books.\n\nEnd-to-end\n\nOversight\n\nReal-time\n\nBudget control\n\nWorkflow\n\nMap · Process · Design · Rules · Automate · Deploy · Monitor · Refine\n\n002 / The stack\n\n## What powers Oil & Gas.\n\nThe Neotecx products and services this sector runs on — explore each.\n\n[P-01 Product **AI Neo Fiber Rollout** Exploration-to-delivery project control. Explore](/products/neo-fiber-rollout/) [P-02 Product **AI 360° Site Management** Dynamic asset & inventory tracking. Explore](/products/site-management/) [P-05 Product **AI Workforce Management** Resourceful workforce planning. Explore](/products/workforce-management/) [P-04 Product **AI Ticket Management** Immediate incident handling. Explore](/products/ticket-management/)\n\n[Book a demo](/contact/)\n\n## See it for your operation.\n\nBook a demo and we will tailor the platform to your sector and stack.\n\n[Get in touch](/contact/) [Explore products](/products/)",
+    "source": "https://neotecx.com/industries/oil-gas/"
+  },
+  "industries/healthcare": {
+    "title": "Healthcare",
+    "markdown": "I-05 / Industry\n\n# Healthcare\n\nDigital health on compliant data — analytics, automation and applied AI.\n\n[Get in touch](/contact/) [All industries](/industries/)\n\n001 / The challenge\n\n## What this sector demands.\n\nPatient outcomes hinge on secure, instantly-accessible health information.\n\nHIPAA by design\n\nSecure PHI privacy vault\n\nModel · live\n\nAccuracy\n\n0%\n\nValidation set\n\nFeatures\n\n96%\n\nEngineered\n\nLatency\n\n0ms\n\np95 inference\n\nDrift\n\n0%\n\n30-day\n\n002 / The stack\n\n## What powers Healthcare.\n\nThe Neotecx products and services this sector runs on — explore each.\n\n[S-08 Service **Data & AI** Healthcare analytics & applied AI. Explore](/services/data-ai/) [S-04 Service **Cloud Platform** Compliant cloud & data-privacy vault. Explore](/services/cloud-platform/) [S-07 Service **Business Process Automation** Automate clinical & admin workflows. Explore](/services/process-automation/) [P-03 Product **AI Agentic Bots** Patient-support agentic bots. Explore](/products/agentic-bots/)\n\n[Book a demo](/contact/)\n\n## See it for your operation.\n\nBook a demo and we will tailor the platform to your sector and stack.\n\n[Get in touch](/contact/) [Explore products](/products/)",
+    "source": "https://neotecx.com/industries/healthcare/"
+  },
+  "industries/construction": {
+    "title": "Construction",
+    "markdown": "I-06 / Industry\n\n# Construction\n\nThis part of the Neotecx site is under construction. The home experience is live — explore the platform, or book a demo and we will take it from there.\n\n[Back to industries](/industries/) [Book a demo](/contact/)",
+    "source": "https://neotecx.com/industries/construction/"
   },
   "case-studies": {
     "title": "Outcomes, not slideware.",

@@ -12,11 +12,9 @@ import aiWave from "@/assets/ai-data-wave.png";
 const contentPages: Record<string, { title: string; markdown: string; source: string }> = pages;
 const pageServices = Object.entries(contentPages).filter(([key]) => key.startsWith("services/") && key.split("/").length === 2).map(([key, page]) => ({ name: page.title, slug: key, desc: page.markdown.split("\n\n")[2] ?? "Explore this engineering capability.", href: `/${key}` }));
 const pageProducts = Object.entries(contentPages).filter(([key]) => key.startsWith("products/") && key.split("/").length === 2).map(([key, page]) => ({ name: page.title, slug: key, desc: page.markdown.split("\n\n")[2] ?? "Explore this Neotecx platform.", href: `/${key}` }));
-const pageIndustries = [
-  { name: "Telecom", slug: "telecom", desc: "Applied AI and software for telecom operators.", href: "/#industry-telecom" },
-  { name: "FinServ", slug: "finserv", desc: "Engineering for financial institutions and their operations.", href: "/#industry-finserv" },
-  { name: "Engineering", slug: "engineering", desc: "Technology for engineering teams and infrastructure.", href: "/#industry-engineering" },
-];
+const pageIndustries = Object.entries(contentPages)
+  .filter(([key]) => key.startsWith("industries/"))
+  .map(([key, page]) => ({ name: page.title, slug: key, desc: page.markdown.split("\n\n")[2] ?? "Explore Neotecx for this sector.", href: `/${key}` }));
 const pageNav = [
   { label: "Home", href: "/", section: "home" },
   { label: "Products", href: "/products", section: "products" },
@@ -95,7 +93,10 @@ export const Route = createFileRoute("/$")({
 function ContentPage() {
   const page = Route.useLoaderData();
   const pageCategory = new URL(page.source).pathname.split("/").filter(Boolean)[0] ?? "page";
-  const markdown = (page.source.includes("/contact/") ? (page.markdown.split("\n\nName\n")[0] ?? page.markdown) : page.markdown).replace(/\\\\\n(?:\\\\\n)?/g, "  \n");
+  const sourceMarkdown = page.source === "https://neotecx.com/services/"
+    ? page.markdown.replace("Eight capabilities, three disciplines.", "Eight services, three disciplines.").replaceAll("Explore capability", "Explore service")
+    : page.markdown;
+  const markdown = (page.source.includes("/contact/") ? (sourceMarkdown.split("\n\nName\n")[0] ?? sourceMarkdown) : sourceMarkdown).replace(/\\\\\n(?:\\\\\n)?/g, "  \n");
   return <div className="relative min-h-screen bg-background">
     <div aria-hidden="true" className="pointer-events-none fixed inset-0 overflow-hidden"><img src={aiWave} alt="" className="scene-wave animate-wave-drift absolute inset-0 h-full w-full object-cover" /><div className="scene-overlay absolute inset-0" /></div>
     <div className="scene-content relative">
@@ -148,7 +149,7 @@ function MarkdownDocument({ markdown }: { markdown: string }) {
       pendingEyebrow = block;
       continue;
     }
-    if (/(?:https:\/\/neotecx\.com\/(?:products|services)\/)/.test(block) && [...block.matchAll(/\]\(https:\/\/neotecx\.com\/(?:products|services)\//g)].length > 1) {
+    if (/(?:https:\/\/neotecx\.com)?\/(?:products|services|industries)\//.test(block) && [...block.matchAll(/\]\((?:https:\/\/neotecx\.com)?\/(?:products|services|industries)\//g)].length > 1) {
       sections.push({ level: 2, blocks: [block], cards: true });
       continue;
     }
@@ -213,12 +214,12 @@ function MarkdownBlock({ markdown }: { markdown: string }) {
 
 function MarkdownLink({ href, children }: { href?: string; children?: ReactNode }) {
   const safeHref = neotecHref(href ?? "#");
-  const isContentCard = safeHref.startsWith("/products/") || safeHref.startsWith("/services/");
+  const isContentCard = safeHref.startsWith("/products/") || safeHref.startsWith("/services/") || safeHref.startsWith("/industries/");
   return <a href={safeHref} className={isContentCard ? "markdown-content-card" : "markdown-inline-link"}>{children}</a>;
 }
 
 function MarkdownParagraph({ children }: { children?: ReactNode }) {
   const nodes = Children.toArray(children).filter(node => !(typeof node === "string" && !node.trim()));
-  const isCardGrid = nodes.length > 1 && nodes.every(node => isValidElement(node) && node.type === MarkdownLink && typeof node.props.href === "string" && (node.props.href.startsWith("https://neotecx.com/products/") || node.props.href.startsWith("https://neotecx.com/services/")));
+  const isCardGrid = nodes.length > 1 && nodes.every(node => isValidElement(node) && typeof node.props.href === "string" && /^(?:https:\/\/neotecx\.com)?\/(?:products|services|industries)\//.test(node.props.href));
   return isCardGrid ? <div className="markdown-card-grid">{children}</div> : <p>{children}</p>;
 }
