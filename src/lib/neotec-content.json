@@ -1,0 +1,115 @@
+{
+  "products": [
+    {
+      "name": "AI Neo Fiber Rollout",
+      "sub": "P-01",
+      "desc": "Intelligent FTTx rollout — from everyday field operations to management control, on one adaptable cloud platform.",
+      "slug": "neo-fiber-rollout",
+      "problem": "An effective FTTx rollout needs software across every step. Gaps between tools stall the build and hide real status.",
+      "features": [
+        "Project 360 dashboards & KPIs",
+        "Permits & wayleaves",
+        "Automated scheduling & dispatch",
+        "Installation & PDF sign-off",
+        "Construction work orders",
+        "Quality control (HSEQ)",
+        "Logistics, warehouse & fleet",
+        "Service & maintenance"
+      ]
+    },
+    {
+      "name": "AI 360° Site Management",
+      "sub": "P-02",
+      "desc": "Run site operations end to end — from planning and design to execution and maintenance — with a live GIS twin.",
+      "slug": "site-management",
+      "problem": "Site data scattered across systems means no single, real-time view to plan and act on.",
+      "features": [
+        "Unified site view",
+        "Real-time GIS tracking",
+        "Drive-test visualisation",
+        "Document management",
+        "CSV & external import",
+        "Indoor / outdoor geo-mapping",
+        "Modules",
+        "## Extends into customer & revenue.",
+        "Add the modules that turn site operations into a full commercial picture.",
+        "[P-02 · a\\\\",
+        "**AI CRM**\\\\",
+        "\\\\",
+        "Real-time customer collaboration and a 360° view of every interaction — from lead to account.\\\\",
+        "Explore AI CRM](https://neotecx.com/products/site-management/crm/) [P-02 · b\\\\",
+        "**AI Lead to Cash**\\\\",
+        "\\\\",
+        "One platform from lead generation to revenue realization — quote, order, bill and recognize.\\\\",
+        "Explore AI Lead to Cash](https://neotecx.com/products/site-management/lead-to-cash/)"
+      ]
+    },
+    {
+      "name": "AI Agentic Bots",
+      "sub": "P-03",
+      "desc": "Autonomous AI agents that perceive, decide, act and learn — going far beyond scripted chatbots.",
+      "slug": "agentic-bots",
+      "problem": "Scripted bots break the moment reality deviates from the script — they follow instructions, they don't reason.",
+      "features": [
+        "24/7 autonomous operations",
+        "Human-like conversations",
+        "Scalable instant workforce",
+        "Data-driven decisions",
+        "Enterprise-grade security",
+        "Continuous learning",
+        "Use cases",
+        "## Where it goes to work.",
+        "Customer support",
+        "Sales & marketing",
+        "Workflow automation",
+        "Knowledge management",
+        "Finance & compliance"
+      ]
+    },
+    {
+      "name": "AI Ticket Management",
+      "sub": "P-04",
+      "desc": "Real-time, AI-assisted ticket resolution — auto or manual, SLA-tracked and field-ready.",
+      "slug": "ticket-management",
+      "problem": "Faults pile up when tickets are routed by hand and field crews arrive without the context to fix them.",
+      "features": [
+        "Real-time analytics dashboard",
+        "Dispatch optimization",
+        "SLA-based monitoring",
+        "Auto ticket generation",
+        "GIS map view",
+        "EMS & fault integration"
+      ]
+    },
+    {
+      "name": "AI Workforce Management",
+      "sub": "P-05",
+      "desc": "Reimagined service orders, scheduling and technician assignment — backed by an intelligent BPMN engine.",
+      "slug": "workforce-management",
+      "problem": "Field force management gets complex fast, and crews, tickets and inventory fall out of sync.",
+      "features": [
+        "Advanced ticketing system",
+        "Smart scheduling & re-routing",
+        "Universal CRM integration",
+        "Geo-insights mobile app",
+        "Predictive analysis",
+        "AI knowledge base"
+      ]
+    },
+    {
+      "name": "AI Tower Management",
+      "sub": "P-06",
+      "desc": "Optimize tower operations end to end — site lifecycle, leases, revenue and assets in one console.",
+      "slug": "tower-management",
+      "problem": "Tower portfolios leak revenue when leases, assets and rollout live in separate spreadsheets.",
+      "features": [
+        "Site lifecycle tracking",
+        "Lease administration",
+        "Revenue management",
+        "Asset visualisation",
+        "GIS site console",
+        "Field work orders"
+      ]
+    }
+  ]
+}

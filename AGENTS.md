@@ -1,0 +1,3 @@
+- Keep decorative background and hero motion in CSS using transform/opacity animation and a reduced-motion fallback; this avoids per-frame React work and preserves the page layout.
+- Keep map captions as accessible HTML separate from decorative imagery so location labels remain sharp and readable at every screen size.
+- Keep source website content in browser-safe data modules and render secondary source pages through the validated catch-all content route; this preserves the existing theme while keeping copied business information separate from presentation.

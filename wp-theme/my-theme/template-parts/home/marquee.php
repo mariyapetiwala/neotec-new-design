@@ -1,0 +1,1 @@
+﻿<?php $clients = array( 'Telecom', 'FinServ', 'Engineering', 'Public Works', 'Energy', 'Utilities' ); ?><section class="marquee"><div><?php foreach ( array_merge( $clients, $clients ) as $client ) : ?><span><?php echo esc_html( $client ); ?></span><?php endforeach; ?></div></section>

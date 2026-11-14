@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="641" height="120" viewBox="0 0 641 120" fill="none">
+  <defs>
+    <linearGradient id="brand" x1="508" y1="0" x2="640" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e446ad"/>
+      <stop offset="1" stop-color="#571bd1"/>
+    </linearGradient>
+  </defs>
+  <text x="8" y="77" fill="white" font-family="Arial Black, Arial, sans-serif" font-size="92" font-weight="900" letter-spacing="13">NEOTEC</text>
+  <path d="M510 5h61l31 35-31 36h-61l31-36z" fill="#d94baa"/>
+  <path d="M574 5h61l-32 35 32 36h-61l-32-36z" fill="#5821cf"/>
+  <text x="508" y="112" fill="url(#brand)" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="22" font-weight="900" letter-spacing="-1">Simplify AI</text>
+</svg>
